@@ -1,4 +1,4 @@
-[tri, v] = import3Dmesh('teapot.obj');
+[tri, v] = import3Dmesh('./obj/teapot.obj');
 trimesh(tri,v(:,1), v(:,2), v(:,3));
 numVerts = size(v,1);
 pos = zeros(numVerts,3);
@@ -42,7 +42,7 @@ for i=1:numTris
 %     cref = [(v(tri(i,1), 1)+v(tri(i,2), 1) + v(tri(i,3), 1))/3 , (v(tri(i,1), 2)+v(tri(i,2), 2) + v(tri(i,3), 2))/3 ]';
 %     cpos = [(pos(tri(i,1), 1)+pos(tri(i,2), 1) + pos(tri(i,3), 1))/3 , (pos(tri(i,1), 2)+pos(tri(i,2), 2) + pos(tri(i,3), 2))/3 ]';
     F = eye(3)+([(e1-E1),(e2-E2)]/[E1,E2])';
-   
+%    F = rand(3);
     
     %%%%%%%%%%ASSIGNMENT%%%%%%%%%%%%%%
     %edit the cauchyStress method to add material models
@@ -127,7 +127,7 @@ function y = femOde(time, state, tri, v, pos)
     %hack to fix object to the floor
     %just set y positions of vertices to zero
     floorVert = abs(v(:,3)) < 1e-6; %some arbitrary toleranc
-    disp(floorVert);
+%     disp(floorVert);
     
     %set positions to zero
     pos(floorVert,3) = 0;

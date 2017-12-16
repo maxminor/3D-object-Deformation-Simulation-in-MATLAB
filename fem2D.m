@@ -2,7 +2,6 @@ function fem2D()
 
 %create square mesh
 [tri, v] = createSquareMesh(10,10, 1,1);
-disp(tri);
 % [tri, v] = createCircleMesh(5,0.01);
 trimesh(tri, v(:,1), v(:,2));
 numVerts = size(v,1);
@@ -171,7 +170,6 @@ function [tri, v] = createSquareMesh(width, height, dx, dy)
 
 v = [X(:) Y(:)];
 tri = delaunay(v(:,1), v(:,2));
-disp(tri);
 numVerts = size(v,1);
 %center mesh
 v(:,1) = v(:,1) - sum(v(:,1))./numVerts;
