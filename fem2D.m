@@ -2,7 +2,14 @@ function fem2D()
 
 %create square mesh
 [tri, v] = createSquareMesh(10,10, 1,1);
-% [tri, v] = createCircleMesh(5,0.01);
+
+global low;
+low = true(size(tri,1),1);
+global mid
+mid = true(size(tri,1),1);
+global high;
+high = true(size(tri,1),1);
+
 trimesh(tri, v(:,1), v(:,2));
 numVerts = size(v,1);
 pos = zeros(numVerts,2);
@@ -42,6 +49,13 @@ end
 %compute FEM accelerations
 function a = femAccelerations(tri, v, pos)
 
+global low
+global mid
+global high
+low = false(size(tri,1),1);
+mid = false(size(tri,1),1);
+high = false(size(tri,1),1);
+
 numTris = size(tri, 1);
 numVerts = size(v,1);
 f = zeros(numVerts,2);
@@ -73,10 +87,19 @@ for i=1:numTris
     %edit the cauchyStress method to add material models
     stress = cauchyStress(F);
     
+    
+    if(norm(stress) > 50)
+        high(i,1) = 1;
+    elseif(norm(stress) > 30)
+        mid(i,1) = 1;
+    else
+        low(i,1) = 1;
+    end
+    
+    
     %compute forces for each edge
     %edge 1
     n1 = [e1(2) ; -e1(1)];
-    
     %%%%%%%%%%ASSIGNMENT%%%%%%%%%%%%%%
     %Set fe1 to the force on the first edge of the triangle (from node 1 to
     %node 2)
@@ -118,6 +141,16 @@ for i=1:numTris
     
 end
 
+% for i=1:size(tri,1)
+%     checker = [f(tri(i,1)) f(tri(i,2)) f(tri(i,3))];
+%     if(norm(checker) > 5)
+%         morethan(i,1) = 1;
+%     else
+%         lessthan(i,1) = 1;
+%     end
+%     
+% end
+
 %reshape force vector and compute accelerations, add gravity here
 f = reshape(f', 2*numVerts,1);
 m = reshape(m', 2*numVerts,1);
@@ -126,14 +159,20 @@ a = f./m + repmat(g, numVerts,1);
 end
 
 function status = femOutputFcn(time, state, flag, pos, tri, v)
-
+global low
+global mid
+global high
 if strcmp(flag, 'done') == 0
 numVerts = size(v,1);
 hold on
 clf
 pos(1:numVerts,:) = [state(1:2:2*numVerts, end) state(2:2:2*numVerts, end)];
-posz(1:numVerts) = 0;
-trimesh(tri, pos(:,1), pos(:,2));
+trimesh(tri(high,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [1 0 0], 'edgecolor', 'k');
+hold on
+trimesh(tri(mid,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [1 1 0], 'edgecolor', 'k');
+hold on
+trimesh(tri(low,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [0 0 1], 'edgecolor', 'k');
+
 hold off
 drawnow
 end
