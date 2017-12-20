@@ -3,12 +3,20 @@ function fem2D()
 %create square mesh
 [tri, v] = createSquareMesh(5,5, 1,1);
 
-global low;
-low = true(size(tri,1),1);
-global mid
-mid = true(size(tri,1),1);
-global high;
-high = true(size(tri,1),1);
+global red;
+red = true(size(tri,1),1);
+global orange;
+orange = true(size(tri,1),1);
+global yellow;
+yellow = true(size(tri,1),1);
+global green;
+green = true(size(tri,1),1);
+global blue;
+blue = true(size(tri,1),1);
+global purple
+purple = true(size(tri,1),1);
+global violet;
+violet = true(size(tri,1),1);
 
 trimesh(tri, v(:,1), v(:,2));
 numVerts = size(v,1);
@@ -48,13 +56,20 @@ end
 
 %compute FEM accelerations
 function a = femAccelerations(tri, v, pos)
-
-global low
-global mid
-global high
-low = false(size(tri,1),1);
-mid = false(size(tri,1),1);
-high = false(size(tri,1),1);
+global red
+global orange
+global yellow
+global green
+global blue
+global purple
+global violet
+red = false(size(tri,1),1);
+orange = false(size(tri,1),1);
+yellow = false(size(tri,1),1);
+green = false(size(tri,1),1);
+blue = false(size(tri,1),1);
+purple = false(size(tri,1),1);
+violet = false(size(tri,1),1);
 
 numTris = size(tri, 1);
 numVerts = size(v,1);
@@ -88,12 +103,20 @@ for i=1:numTris
     stress = cauchyStress(F);
     
     
-    if(norm(stress) > 50)
-        high(i,1) = 1;
+    if(norm(stress) > 60)
+        red(i,1) = 1;
+    elseif(norm(stress) > 50)
+        orange(i,1) = 1;
+    elseif(norm(stress) > 40)
+        yellow(i,1) = 1;
     elseif(norm(stress) > 30)
-        mid(i,1) = 1;
+        green(i,1) = 1;
+    elseif(norm(stress) > 20)
+        blue(i,1) = 1;
+    elseif(norm(stress) > 10)
+        purple(i,1) = 1;
     else
-        low(i,1) = 1;
+        violet(i,1) = 1;
     end
     
     
@@ -159,23 +182,32 @@ a = f./m + repmat(g, numVerts,1);
 end
 
 function status = femOutputFcn(time, state, flag, pos, tri, v)
-global low
-global mid
-global high
+global red
+global orange
+global yellow
+global green
+global blue
+global purple
+global violet
 if strcmp(flag, 'done') == 0
 numVerts = size(v,1);
 hold on
 clf
 
 pos(1:numVerts,:) = [state(1:2:2*numVerts, end) state(2:2:2*numVerts, end)];
-%trimesh(tri(high,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [1 0 0], 'edgecolor', 'k');
-trimesh(tri(high,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [1 0 0]);
+trimesh(tri(red,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [1 0 0]);
 hold on
-%trimesh(tri(mid,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [1 1 0], 'edgecolor', 'k');
-trimesh(tri(mid,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [1 1 0]);
+trimesh(tri(orange,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [1 0.498 0]);
 hold on
-%trimesh(tri(low,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [0 0 1], 'edgecolor', 'k');
-trimesh(tri(low,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [0 0 1]);
+trimesh(tri(yellow,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [1 1 0]);
+hold on
+trimesh(tri(green,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [0 1 0]);
+hold on
+trimesh(tri(blue,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [0 0 1]);
+hold on
+trimesh(tri(purple,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [0.580 0 0.827]);
+hold on
+trimesh(tri(violet,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [1 0 1]);
 
 hold off
 drawnow
