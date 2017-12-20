@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/project/comfab/assign1/build"/>
+				<Option working_dir="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="voxelizer">
-				<Option output="D:/project/comfab/assign1/build/voxelizer.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/project/comfab/assign1/build"/>
+				<Option output="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/voxelizer.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -32,15 +32,15 @@
 					<Add directory="c:\program files (x86)\dev-cpp\mingw32\bin\../lib/gcc/mingw32/4.7.2/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 voxelizer"/>
-					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 voxelizer"/>
+					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="voxelizer/fast">
-				<Option output="D:/project/comfab/assign1/build/voxelizer.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/project/comfab/assign1/build"/>
+				<Option output="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/voxelizer.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,52 +53,49 @@
 					<Add directory="c:\program files (x86)\dev-cpp\mingw32\bin\../lib/gcc/mingw32/4.7.2/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 voxelizer/fast"/>
-					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 voxelizer/fast"/>
+					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/project/comfab/assign1/build"/>
+				<Option working_dir="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/project/comfab/assign1/build"/>
+				<Option working_dir="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/assign1/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/Dev-Cpp/MinGW32/bin/mingw32-make.exe -f &quot;D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/project/comfab/assign1/include/CompFab.h">
+		<Unit filename="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/include/CompFab.h">
 			<Option target="voxelizer"/>
 		</Unit>
-		<Unit filename="D:/project/comfab/assign1/include/Mesh.h">
+		<Unit filename="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/include/Mesh.h">
 			<Option target="voxelizer"/>
 		</Unit>
-		<Unit filename="D:/project/comfab/assign1/source/CompFab.cpp">
+		<Unit filename="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/source/CompFab.cpp">
 			<Option target="voxelizer"/>
 		</Unit>
-		<Unit filename="D:/project/comfab/assign1/source/Mesh.cpp">
+		<Unit filename="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/source/Mesh.cpp">
 			<Option target="voxelizer"/>
 		</Unit>
-		<Unit filename="D:/project/comfab/assign1/source/main.cpp">
+		<Unit filename="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/source/main.cpp">
 			<Option target="voxelizer"/>
 		</Unit>
-		<Unit filename="D:/project/comfab/assign1/source/main_soln.cpp">
-			<Option target="voxelizer"/>
-		</Unit>
-		<Unit filename="D:/project/comfab/assign1/CMakeLists.txt">
+		<Unit filename="D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

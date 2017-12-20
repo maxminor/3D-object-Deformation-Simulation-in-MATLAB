@@ -74,18 +74,26 @@ CompFab::Vec3 CUBE_VERT[8]={
     CompFab::Vec3 (0, 1, 1)
 };
 
-CompFab::Vec3i CUBE_TRIG[12]={CompFab::Vec3i(0,3,1),
-CompFab::Vec3i(1, 3, 2),
-CompFab::Vec3i(5, 4, 0),
-CompFab::Vec3i(5, 0, 1),
-CompFab::Vec3i(6, 5, 1),
-CompFab:: Vec3i(1, 2, 6),
-CompFab:: Vec3i(3, 6, 2),
-CompFab:: Vec3i(3, 7, 6),
-CompFab:: Vec3i(4, 3, 0),
-CompFab:: Vec3i(4, 7, 3),
-CompFab:: Vec3i(7, 4, 5),
-CompFab:: Vec3i(7, 5, 6)};
+CompFab::Vec3i CUBE_TRIG[20]={CompFab::Vec3i(0,3,1),
+CompFab::Vec3i(0, 1, 4),
+CompFab::Vec3i(0, 4, 3),
+CompFab::Vec3i(3, 4, 1),      //end theta 1
+CompFab::Vec3i(2, 1, 3),
+CompFab::Vec3i(2, 3, 6),
+CompFab::Vec3i(2, 6, 1),
+CompFab::Vec3i(3, 1, 6),      //end theta 2
+CompFab::Vec3i(6, 1, 3),
+CompFab::Vec3i(6, 3, 4),
+CompFab::Vec3i(6, 4, 1),
+CompFab::Vec3i(3, 1, 4),      //end theta 3
+CompFab::Vec3i(7, 4, 6),
+CompFab::Vec3i(7, 6, 3),
+CompFab::Vec3i(7, 3, 4),
+CompFab::Vec3i(4, 3, 6),      //end theta 4
+CompFab::Vec3i(5, 6, 4),
+CompFab::Vec3i(5, 4, 1),
+CompFab::Vec3i(5, 1, 6),
+CompFab::Vec3i(6, 1, 4)};     //end theta 5
 Mesh UNIT_CUBE(CUBE_VERT,CUBE_TRIG);
 
 Mesh::Mesh():v(0),t(0){}
@@ -100,7 +108,7 @@ Mesh::Mesh(const CompFab::Vec3 * _v,
   const CompFab::Vec3i * _t)
 {
   v.assign(_v,_v+8);
-  t.assign(_t,_t+12);
+  t.assign(_t,_t+20);
   
   compute_norm();
 }

@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/voxelizer.dir/source/CompFab.cpp.obj"
   "CMakeFiles/voxelizer.dir/source/Mesh.cpp.obj"
   "CMakeFiles/voxelizer.dir/source/main.cpp.obj"
-  "CMakeFiles/voxelizer.dir/source/main_soln.cpp.obj"
   "voxelizer.pdb"
   "voxelizer.exe"
   "voxelizer.exe.manifest"

@@ -4,10 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/project/comfab/assign1/source/CompFab.cpp" "D:/project/comfab/assign1/build/CMakeFiles/voxelizer.dir/source/CompFab.cpp.obj"
-  "D:/project/comfab/assign1/source/Mesh.cpp" "D:/project/comfab/assign1/build/CMakeFiles/voxelizer.dir/source/Mesh.cpp.obj"
-  "D:/project/comfab/assign1/source/main.cpp" "D:/project/comfab/assign1/build/CMakeFiles/voxelizer.dir/source/main.cpp.obj"
-  "D:/project/comfab/assign1/source/main_soln.cpp" "D:/project/comfab/assign1/build/CMakeFiles/voxelizer.dir/source/main_soln.cpp.obj"
+  "D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/source/CompFab.cpp" "D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/CMakeFiles/voxelizer.dir/source/CompFab.cpp.obj"
+  "D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/source/Mesh.cpp" "D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/CMakeFiles/voxelizer.dir/source/Mesh.cpp.obj"
+  "D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/source/main.cpp" "D:/project/comfab/finalproject/3D-object-Deformation-Simulation-in-MATLAB/voxelizig/build/CMakeFiles/voxelizer.dir/source/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

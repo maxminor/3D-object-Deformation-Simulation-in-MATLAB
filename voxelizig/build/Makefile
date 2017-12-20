@@ -47,10 +47,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\project\comfab\assign1
+CMAKE_SOURCE_DIR = D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\project\comfab\assign1\build
+CMAKE_BINARY_DIR = D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\project\comfab\assign1\build\CMakeFiles D:\project\comfab\assign1\build\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig\build\CMakeFiles D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig\build\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\project\comfab\assign1\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -203,33 +203,6 @@ source/main.cpp.s:
 	$(MAKE) -f CMakeFiles\voxelizer.dir\build.make CMakeFiles/voxelizer.dir/source/main.cpp.s
 .PHONY : source/main.cpp.s
 
-source/main_soln.obj: source/main_soln.cpp.obj
-
-.PHONY : source/main_soln.obj
-
-# target to build an object file
-source/main_soln.cpp.obj:
-	$(MAKE) -f CMakeFiles\voxelizer.dir\build.make CMakeFiles/voxelizer.dir/source/main_soln.cpp.obj
-.PHONY : source/main_soln.cpp.obj
-
-source/main_soln.i: source/main_soln.cpp.i
-
-.PHONY : source/main_soln.i
-
-# target to preprocess a source file
-source/main_soln.cpp.i:
-	$(MAKE) -f CMakeFiles\voxelizer.dir\build.make CMakeFiles/voxelizer.dir/source/main_soln.cpp.i
-.PHONY : source/main_soln.cpp.i
-
-source/main_soln.s: source/main_soln.cpp.s
-
-.PHONY : source/main_soln.s
-
-# target to generate assembly for a file
-source/main_soln.cpp.s:
-	$(MAKE) -f CMakeFiles\voxelizer.dir\build.make CMakeFiles/voxelizer.dir/source/main_soln.cpp.s
-.PHONY : source/main_soln.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -248,9 +221,6 @@ help:
 	@echo ... source/main.obj
 	@echo ... source/main.i
 	@echo ... source/main.s
-	@echo ... source/main_soln.obj
-	@echo ... source/main_soln.i
-	@echo ... source/main_soln.s
 .PHONY : help
 
 

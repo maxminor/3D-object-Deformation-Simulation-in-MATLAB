@@ -53,10 +53,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\project\comfab\assign1
+CMAKE_SOURCE_DIR = D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\project\comfab\assign1\build
+CMAKE_BINARY_DIR = D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig\build
 
 #=============================================================================
 # Target rules for target CMakeFiles/voxelizer.dir
@@ -65,7 +65,7 @@ CMAKE_BINARY_DIR = D:\project\comfab\assign1\build
 CMakeFiles/voxelizer.dir/all:
 	$(MAKE) -f CMakeFiles\voxelizer.dir\build.make CMakeFiles/voxelizer.dir/depend
 	$(MAKE) -f CMakeFiles\voxelizer.dir\build.make CMakeFiles/voxelizer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\project\comfab\assign1\build\CMakeFiles --progress-num=1,2,3,4,5 "Built target voxelizer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig\build\CMakeFiles --progress-num=1,2,3,4 "Built target voxelizer"
 .PHONY : CMakeFiles/voxelizer.dir/all
 
 # Include target in all.
@@ -75,9 +75,9 @@ all: CMakeFiles/voxelizer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/voxelizer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\project\comfab\assign1\build\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig\build\CMakeFiles 4
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/voxelizer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\project\comfab\assign1\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\project\comfab\finalproject\3D-object-Deformation-Simulation-in-MATLAB\voxelizig\build\CMakeFiles 0
 .PHONY : CMakeFiles/voxelizer.dir/rule
 
 # Convenience name for target.
