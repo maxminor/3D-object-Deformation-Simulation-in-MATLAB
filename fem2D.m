@@ -166,12 +166,16 @@ if strcmp(flag, 'done') == 0
 numVerts = size(v,1);
 hold on
 clf
+
 pos(1:numVerts,:) = [state(1:2:2*numVerts, end) state(2:2:2*numVerts, end)];
-trimesh(tri(high,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [1 0 0], 'edgecolor', 'k');
+%trimesh(tri(high,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [1 0 0], 'edgecolor', 'k');
+trimesh(tri(high,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [1 0 0]);
 hold on
-trimesh(tri(mid,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [1 1 0], 'edgecolor', 'k');
+%trimesh(tri(mid,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [1 1 0], 'edgecolor', 'k');
+trimesh(tri(mid,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [1 1 0]);
 hold on
-trimesh(tri(low,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [0 0 1], 'edgecolor', 'k');
+%trimesh(tri(low,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', [0 0 1], 'edgecolor', 'k');
+trimesh(tri(low,:), pos(:,1),zeros(size(pos(:,1))), pos(:,2), 'facecolor', 'k', 'edgecolor', [0 0 1]);
 
 hold off
 drawnow
