@@ -50,6 +50,7 @@ function y = femOde(time, state, tri, v, pos)
     %set velocities to zero
     vel = [state((2*numVerts+1):2:end) state((2*numVerts+2):2:end)];
     vel(floorVert,2) = 0;
+    disp(femAccelerations(tri, v, pos));
     y = [reshape(vel', 2*numVerts,1) ; femAccelerations(tri, v, pos)];
     
 end

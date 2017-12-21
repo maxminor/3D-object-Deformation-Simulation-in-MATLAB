@@ -1,7 +1,8 @@
 function Project()
 
-[tri, v] = import3Dmesh('./obj/teapot.obj');
-trisurf(tri,v(:,1), v(:,2), v(:,3));
+[tri, v] = import3Dmesh('./voxelizig/models/single-cube.obj');
+% trisurf(tri,v(:,1), v(:,2), v(:,3));
+trimesh(tri, v(:, 1), v(:, 2), v(:, 3));
 numVerts = size(v,1);
 pos = zeros(numVerts,3);
 odeFun = @(time, state)(femOde(time,state,tri,v,pos));
@@ -9,7 +10,7 @@ outputFun = @(time, state, flag)(femOutputFcn(time,state,flag,pos, tri, v));
 options = odeset('OutputFcn', outputFun);
 
 y0 = [reshape(v', 3*numVerts,1); zeros(3*numVerts,1)];
-[time, state] = ode45(odeFun, [0, 10], y0, options);
+[time, state] = ode45(odeFun, [0, 1], y0, options);
 
 pos(1:numVerts,:) = [state(end, 1:3:3*numVerts)' state(end, 2:3:3*numVerts)' state(end, 3:3:3*numVerts)'];
 trimesh(tri, pos(:,1), pos(:,2), pos(:,3));
@@ -23,28 +24,37 @@ numVerts = size(v,1);
 f = zeros(numVerts,3);
 m = zeros(numVerts, 3);
 density = 1.0;
-g = [0 -9.8 0]';
+g = [0 0 -9.8]';
 
-for i=1:numTris
+for i=1:4:numTris
     
     %Edge vectors
     E1 = (v(tri(i,2), :)-v(tri(i,1), :))';
-    E2 = (v(tri(i,3), :)-v(tri(i,1), :))';
+    E2 = (v(tri(i+1,2), :)-v(tri(i+1,1), :))';
+    E3 = (v(tri(i+2,2), :)-v(tri(i+2,1), :))';
+    disp([tri(i,2), tri(i,1);tri(i+1,2), tri(i+1,1);tri(i+2,2), tri(i+2,1)]);
     
     e1 = (pos(tri(i,2), :)-pos(tri(i,1), :))';
-    e2 = (pos(tri(i,3), :)-pos(tri(i,1), :))';
-    e3 = (pos(tri(i,3), :)-pos(tri(i,2), :))';
+    e2 = (pos(tri(i+1,2), :)-pos(tri(i+1,1), :))';
+    e3 = (pos(tri(i+2,2), :)-pos(tri(i+2,1), :))';
+    e4 = (pos(tri(i,3), :)-pos(tri(i,2), :))';
+    e5 = (pos(tri(i+1,3), :)-pos(tri(i+1,2), :))';
+    e6 = (pos(tri(i+2,3), :)-pos(tri(i+2,2), :))';
 %     area = 0.5*det([e1 e2]);
-    angle = acos(dot(e1,e2)/(norm(e1)*norm(e2)));
-    area = 0.5*norm(e1)*norm(e2)*sin(angle);
-    me = density*area;
+    % angle = acos(dot(e1,e2)/(norm(e1)*norm(e2)));
+    % area = 0.5*norm(e1)*norm(e2)*sin(angle);
+    % me = density*area;
+    me = 0.1;
     %%%%%%%%%%ASSIGNMENT%%%%%%%%%%%%%%
     %compute F
 %     disp(pos);
 %     cref = [(v(tri(i,1), 1)+v(tri(i,2), 1) + v(tri(i,3), 1))/3 , (v(tri(i,1), 2)+v(tri(i,2), 2) + v(tri(i,3), 2))/3 ]';
 %     cpos = [(pos(tri(i,1), 1)+pos(tri(i,2), 1) + pos(tri(i,3), 1))/3 , (pos(tri(i,1), 2)+pos(tri(i,2), 2) + pos(tri(i,3), 2))/3 ]';
-    F = eye(3)+([(e1-E1),(e2-E2)]/[E1,E2])';
-    disp(E2);
+    F = eye(3)+([(e1-E1),(e2-E2),(e3-E3)]/[E1,E2,E3])';
+    % F = eye(3)+([1 0 0; 0 1 1; 0 0 1]);
+    % disp(F);
+    % disp([E1, E2, E3]);
+    % disp(E2);
     
     %%%%%%%%%%ASSIGNMENT%%%%%%%%%%%%%%
     %edit the cauchyStress method to add material models
@@ -52,7 +62,8 @@ for i=1:numTris
     
     %compute forces for each edge
     %edge 1
-    n1 = [e1(2) ; e1(1) ; -e1(3)];
+    % n1 = [e1(2) ; e1(1) ; -e1(3)];
+    n1 = cross(e2, e1);
     
     %%%%%%%%%%ASSIGNMENT%%%%%%%%%%%%%%
     %Set fe1 to the force on the first edge of the triangle (from node 1 to
@@ -63,37 +74,53 @@ for i=1:numTris
     
     fe1 = stress*n1*l1;
     
-    f(tri(i,2), :) = f(tri(i,2), :) - 0.5*fe1';
-    f(tri(i,1), :) = f(tri(i,1), :) - 0.5*fe1';
+    f(tri(i,2), :) = f(tri(i,2), :) - 0.3*fe1';
+    f(tri(i,1), :) = f(tri(i,1), :) - 0.3*fe1';
+    f(tri(i,3), :) = f(tri(i,3), :) - 0.3*fe1';
+    
     
     
     %edge2
-    n2 = [-e3(2) ; -e3(1) ; e3(3)];
+    % n2 = [-e3(2) ; -e3(1) ; e3(3)];
+    n2 = cross(e3, e2);
     
     %%%%%%%%%%ASSIGNMENT%%%%%%%%%%%%%%
     %Set fe2 to the force on the first edge of the triangle (from node 2 to
     %node 3)
     l2 = norm(e3);
     fe2 = stress*n2*l2;
-    f(tri(i,3), :) = f(tri(i,3), :) - 0.5*fe2';
-    f(tri(i,2), :) = f(tri(i,2), :) - 0.5*fe2';
+    f(tri(i+1,3), :) = f(tri(i+1,3), :) - 0.3*fe2';
+    f(tri(i+1,2), :) = f(tri(i+1,2), :) - 0.3*fe2';
+    f(tri(i+1,1), :) = f(tri(i+1,1), :) - 0.3*fe2';
     
     
-    n3 = [-e2(2) ; e2(1) ; e2(3)];
+    % n3 = [-e2(2) ; e2(1) ; e2(3)];
+    n3 = cross(e1, e3);
     
     %%%%%%%%%%ASSIGNMENT%%%%%%%%%%%%%%
     %Set fe3 to the force on the first edge of the triangle (from node 3 to
     %node 1)
     l3 = norm(e2);
     fe3 = stress*n3*l3;
-    f(tri(i,3), :) = f(tri(i,3), :) - 0.5*fe3';
-    f(tri(i,1), :) = f(tri(i,1), :) - 0.5*fe3';
+    f(tri(i+2,3), :) = f(tri(i+2,3), :) - 0.3*fe3';
+    f(tri(i+2,2), :) = f(tri(i+2,2), :) - 0.3*fe3';
+    f(tri(i+2,1), :) = f(tri(i+2,1), :) - 0.3*fe3';
+
+    n4 = cross(e4, e5);
+    l4 = norm(n4);
+    fe4 = stress*n4*l4;
     
     
+    f(tri(i+3,3), :) = f(tri(i+3,3), :) - 0.3*fe4';
+    f(tri(i+3,2), :) = f(tri(i+3,2), :) - 0.3*fe4';
+    f(tri(i+3,1), :) = f(tri(i+3,1), :) - 0.3*fe4';
+
     %distribute mass to all vertices
-    m(tri(i,1), : ) = m(tri(i,1), : ) + [me me me]/3;
-    m(tri(i,2), : ) = m(tri(i,2), : ) + [me me me]/3;
-    m(tri(i,3), : ) = m(tri(i,3), : ) + [me me me]/3;
+    m(tri(i,1), : ) = m(tri(i,1), : ) + [me me me]/4;
+    m(tri(i+3,1), : ) = m(tri(i+3,1), : ) + [me me me]/4;
+    m(tri(i+3,2), : ) = m(tri(i+3,2), : ) + [me me me]/4;
+    m(tri(i+3,3), : ) = m(tri(i+3,3), : ) + [me me me]/4;
+    
    
     
 end
@@ -141,8 +168,8 @@ function y = femOde(time, state, tri, v, pos)
 %     disp(numVerts);
 %     disp(m);
 %     disp(n);
-    y = [reshape(vel', 3*numVerts,1) ; femAccelerations(tri, v, pos)];
-    
+    disp(femAccelerations(tri, v, pos));
+    y = [reshape(vel', (3*numVerts),1) ; femAccelerations(tri, v, pos)];
 end
 
 function stress = cauchyStress(F)

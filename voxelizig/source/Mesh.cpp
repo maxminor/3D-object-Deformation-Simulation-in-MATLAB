@@ -41,12 +41,34 @@ void makeCube(Mesh & m, const CompFab::Vec3 & mn,
   }
 }
 
-void Mesh::append(const Mesh & m)
+void Mesh::append(const Mesh & inMesh)
 {
   unsigned int offset = v.size();
+  // unsigned int offset = 0;
   unsigned int ot = t.size();
+
+  Mesh m = inMesh;
+  
   v.insert(v.end(),m.v.begin(),m.v.end());
   t.insert(t.end(),m.t.begin(), m.t.end());
+
+  for (unsigned int i = 0; i<v.size(); i++) {
+    for (unsigned int mi = ot; mi < t.size(); mi++) {
+      if (v[i] == m.v[mi]) {
+        for (unsigned int j = 0; j < m.t.size(); j++) {
+          if (mi == t[i]) m.t[j].m_x = i;
+          if (mi == t[i]) m.t[j].m_y = i;
+          if (mi == t[i]) m.t[j].m_z = i;
+        }
+      }
+      else {
+
+      }
+    }
+  }
+
+  // v.insert(v.end(),m.v.begin(),m.v.end());
+  // t.insert(t.end(),m.t.begin(), m.t.end());
   for(unsigned int ii = ot;ii<t.size();ii++){
     for(int jj = 0 ;jj<3;jj++){
       t[ii][jj] += offset;

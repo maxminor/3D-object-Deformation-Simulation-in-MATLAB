@@ -149,7 +149,6 @@ void saveVoxelsToObj(const char * outfile)
             }
         }
     }
-
     mout.save_obj(outfile);
 }
 
@@ -172,7 +171,7 @@ int main(int argc, char **argv)
     }
 
     std::cout<<"Load Mesh : "<<argv[1]<<"\n";
-    loadMesh(argv[1], small_dim, &max_dim);
+    loadMesh(argv[1], even_small_dim, &max_dim);
     std::cout<<"done loading mesh" << std::endl;
     std::cout<<"voxel : "<< max_dim << std::endl;
 
