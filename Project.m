@@ -1,6 +1,6 @@
 function Project()
 
-[tri, v] = import3Dmesh('./voxelizig/models/single-cube.obj');
+[tri, v] = import3Dmesh('./voxelizig/models/tetraMesh.obj');
 % trisurf(tri,v(:,1), v(:,2), v(:,3));
 trimesh(tri, v(:, 1), v(:, 2), v(:, 3));
 numVerts = size(v,1);
